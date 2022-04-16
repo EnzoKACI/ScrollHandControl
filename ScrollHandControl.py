@@ -35,7 +35,7 @@ while True:
     lmList = det.findPosition(img, draw=False)
     if len(lmList) != 0:
 
-        x1, y1 = lmList[12][1], lmList[12][2]  # major
+        x1, y1 = lmList[12][1], lmList[12][2]  # middle
         x2, y2 = lmList[0][1], lmList[0][2]  # base
         x3, y3 = lmList[4][1], lmList[4][2]  # thumb
         cv2.circle(img, (x1, y1), 7, (255, 0, 0), cv2.FILLED)
@@ -43,14 +43,14 @@ while True:
         cv2.circle(img, (x3, y3), 7, (0, 255, 255), cv2.FILLED)
 
         cv2.line(img, (x1, y1), (x2, y2), (255, 0, 255), 3)
-        major2base = math.hypot(x2 - x1, y2 - y1)
-        cv2.putText(img, str(int(major2base)), (3, 30), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 1, (255, 0, 255), 3)
+        middle2base = math.hypot(x2 - x1, y2 - y1)
+        cv2.putText(img, str(int(middle2base)), (3, 30), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 1, (255, 0, 255), 3)
 
         cv2.line(img, (x1, y1), (x3, y3), (255, 255, 255), 3)
-        major2thumb = math.hypot(x3 - x1, y3 - y1)
-        cv2.putText(img, str(int(major2thumb)), (3, 60), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 1, (255, 255, 255), 3)
+        middle2thumb = math.hypot(x3 - x1, y3 - y1)
+        cv2.putText(img, str(int(middle2thumb)), (3, 60), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, 1, (255, 255, 255), 3)
 
-        scrolling(major2base, major2thumb)
+        scrolling(middle2base, middle2thumb)
 
 
     cTime = time.time()
